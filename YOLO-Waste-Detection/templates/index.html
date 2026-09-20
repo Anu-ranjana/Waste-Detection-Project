@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Waste &amp; Smoking Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Waste &amp; Smoking Detection</h1>
+    <p>YOLOv8 waste model (Glass, Metal, Paper, Plastic, Waste) and YOLOv5 smoking model (Cigarette).</p>
+  </header>
+
+  <div class="mode-toggle">
+    <label><input type="radio" name="mode" value="waste" checked> Waste</label>
+    <label><input type="radio" name="mode" value="smoking"> Smoking</label>
+  </div>
+
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="image">Image</button>
+    <button class="tab-btn" data-tab="video">Video</button>
+    <button class="tab-btn" data-tab="camera">Camera</button>
+    <button class="tab-btn" data-tab="throwing-waste">Throwing Waste</button>
+  </nav>
+
+  <main>
+    <!-- Image tab -->
+    <section id="image" class="tab-panel active">
+      <form id="image-form">
+        <input type="file" id="image-input" name="file" accept="image/*" required>
+        <button type="submit">Detect</button>
+      </form>
+      <p id="image-status" class="status"></p>
+      <div class="result">
+        <img id="image-result" alt="" hidden>
+      </div>
+      <ul id="image-detections" class="detections"></ul>
+    </section>
+
+    <!-- Video tab -->
+    <section id="video" class="tab-panel">
+      <form id="video-form">
+        <input type="file" id="video-input" name="file" accept="video/*" required>
+        <button type="submit">Detect</button>
+      </form>
+      <p id="video-status" class="status"></p>
+      <div class="result">
+        <video id="video-result" controls hidden></video>
+        <a id="video-download" hidden target="_blank">Download result video</a>
+      </div>
+      <ul id="video-summary" class="detections"></ul>
+    </section>
+
+    <!-- Camera tab -->
+    <section id="camera" class="tab-panel">
+      <div class="camera-controls">
+        <button id="camera-start">Start Camera</button>
+        <button id="camera-stop" disabled>Stop Camera</button>
+      </div>
+      <div class="result">
+        <img id="camera-feed" alt="Camera feed" hidden>
+      </div>
+    </section>
+
+    <!-- Throwing Waste tab -->
+    <section id="throwing-waste" class="tab-panel">
+      <p class="hint">
+        Simulated detections read from <code>data/throwing_waste_events.json</code>.
+        Upload a video below (saved into <code>uploads/videos/</code>), reference its
+        filename in the events JSON, then run the detector.
+      </p>
+
+      <form id="throwing-waste-upload-form">
+        <input type="file" id="throwing-waste-upload-input" name="file" accept="video/*" required>
+        <button type="submit">Upload Video</button>
+      </form>
+      <p id="throwing-waste-upload-status" class="status"></p>
+      <ul id="throwing-waste-video-list" class="detections"></ul>
+
+      <div class="throwing-waste-controls">
+        <button id="throwing-waste-run">Run Detector</button>
+        <button id="throwing-waste-refresh">Refresh</button>
+        <button id="throwing-waste-reset" class="danger">Reset Log</button>
+      </div>
+      <p id="throwing-waste-status" class="status"></p>
+      <div id="throwing-waste-grid" class="detection-grid"></div>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <img id="lightbox-img" alt="Snapshot full size">
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

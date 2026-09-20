@@ -1,0 +1,20 @@
+[
+  {
+    "video_name": "video1.mp4",
+    "detections": [
+      { "timestamp": "00:00:4" }
+    ]
+  },{
+    
+    "video_name": "video2.mp4",
+    "detections": [
+      { "timestamp": "00:00:2" }
+    ]
+  },{
+    
+    "video_name": "video3.mp4",
+    "detections": [
+      { "timestamp": "00:00:4" }
+    ]
+  }
+]

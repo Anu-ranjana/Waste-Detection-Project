@@ -1,0 +1,6 @@
+__pycache__
+static/outputs
+.env
+uploads/videos/*
+!uploads/videos/.gitkeep
+data/throwing_waste_log.json

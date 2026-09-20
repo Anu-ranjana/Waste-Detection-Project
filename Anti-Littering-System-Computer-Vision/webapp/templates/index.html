@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anti-Littering System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Anti-Littering System 🚯</h1>
+    <p>Upload an image or video, or use your camera, to detect littering incidents.</p>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="image">Image</button>
+    <button class="tab-btn" data-tab="video">Video</button>
+    <button class="tab-btn" data-tab="camera">Camera</button>
+  </nav>
+
+  <main>
+    <section id="tab-image" class="tab-panel active">
+      <input type="file" id="imageInput" accept="image/*">
+      <button id="imageAnalyzeBtn">Analyze Image</button>
+      <div class="result">
+        <img id="imageResult" alt="Result will appear here">
+      </div>
+      <ul id="imageEvents" class="events"></ul>
+    </section>
+
+    <section id="tab-video" class="tab-panel">
+      <input type="file" id="videoInput" accept="video/*">
+      <button id="videoAnalyzeBtn">Analyze Video</button>
+      <div class="result">
+        <img id="videoResult" alt="Annotated stream will appear here">
+      </div>
+      <p class="hint">Frames are processed and streamed back as they're ready; this runs at processing speed, not the original video's frame rate.</p>
+    </section>
+
+    <section id="tab-camera" class="tab-panel">
+      <video id="cameraVideo" autoplay playsinline muted></video>
+      <canvas id="cameraCanvas" hidden></canvas>
+      <div class="camera-controls">
+        <button id="cameraStartBtn">Start Camera</button>
+        <button id="cameraStopBtn" disabled>Stop Camera</button>
+      </div>
+      <div class="result">
+        <img id="cameraResult" alt="Annotated camera feed will appear here">
+      </div>
+      <ul id="cameraEvents" class="events"></ul>
+      <p class="hint">Requires camera permission. Frames are sent to the server roughly every 500ms for analysis.</p>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

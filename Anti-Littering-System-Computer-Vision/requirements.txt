@@ -1,0 +1,9 @@
+pandas
+numpy
+opencv-python<5
+ultralytics
+deepface
+tensorflow
+tf-keras
+matplotlib
+flask

@@ -1,0 +1,11 @@
+opencv-python
+matplotlib
+numpy
+PyYAML
+ultralytics
+flask
+imageio
+imageio-ffmpeg
+torch
+torchvision
+seaborn

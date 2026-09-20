@@ -1,0 +1,39 @@
+
+# Private face database
+**/face_database/
+
+# Nested Git repositories
+**/.git/
+
+# Local settings
+.claude/
+**/.claude/
+.DS_Store
+
+# Private face database
+**/face_database/
+
+# Generated files
+**/runs/
+**/static/outputs/
+**/uploads/videos/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python cache (all folders)
+**/__pycache__/
+*.py[cod]
+
+# Private data
+**/face_database/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Generated output files
+**/static/outputs/
