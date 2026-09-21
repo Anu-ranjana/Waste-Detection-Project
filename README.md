@@ -224,7 +224,7 @@ The anti-littering module includes computer vision pipelines, pose detection com
 
 ---
 
-## 👩‍💻 Contributors
+## 👩‍💻 Author
 
 **Anu-ranjana**
 
